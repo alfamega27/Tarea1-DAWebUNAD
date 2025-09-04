@@ -1,0 +1,138 @@
+<!--  
+Toda página HTML5 debe tener esta estructura, para poder ser leida y entendida por el navegador
+-->
+
+<!-- INICIO, INDEX O RAIZ LA BASE DE TODA LA PÁGINA WEB -->
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- La arquitectura HTML5, se divide en varias partes
+     Esta parte es la cabecera de la página donde se le indica al navegador todos los estilos,
+     las conexiones que tienen a otros archivos que tiene que ver en el diseño, 
+     como los archivos de css y js, etc. -->
+<head>
+
+    <!-- Tipo de entrada de caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- El título de la pestaña en el navegador: Identifica la página -->
+    <title>TAREA 1 Creación HTML</title>
+    
+    <!-- Aqui se crean los estilos para mostrar en la página -->
+    <style>
+        /* El estilo general del cuerpo de toda la página */
+        /*  */
+
+        :root {
+            --color_body: #FFFFFF; /* VARIABLE EN CSS Color del BODY */
+        }
+
+        body { font-family: Time fantasy, sans-serif; background-color:var(--color_body); margin: 20px; }
+        
+        /* Estilo del título principal */
+        h1 { color: #C0C0C0; }
+        
+        /* Estilo de los párrafos */
+        p { color: #333; }
+
+        /* Estilo del logo de la UNAD */
+        .logoUNAD{ width: 50%; border:50px; padding:10px }
+        
+        /* Caja con borde y fondo gris */
+        .caja { border: 1px solid #ccc; padding: 10px; background: grey; border-radius: 5px; }
+
+        .caja_pie{background-color: #808080}
+        
+        /* Estilo del los botones */
+        button { background: #2ecc71; color: white; padding: 10px; border: none; cursor: pointer; }
+        button:hover { background: #27ae60; }
+        .btn_cambio{
+            position: absolute;
+            right: 20px;
+            top: 120px;
+        }
+        
+        /* Centrar boton del centro */
+        .caja_boton {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        /* Centrar el container principal */
+        .caja_logoUNAD {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenido HTML5 que el navegador mostrará -->
+    <h1 id="titulo1">Arquitectura Cliente/Servidor Creado por el Estudiante Alfonso Barrera </h1>
+    <h1 class="titulo2">Grupo 31</h1>
+
+    <button class="btn_cambio", onclick="fun_cambio()">MODO OSCURO</button>
+    
+    <!-- Caja con explicación de cliente/servidor -->
+    <div class="caja">
+        <p>El <b>cliente</b> solicita información mediante el navegador, mientras que el <b>servidor</b> procesa la solicitud y responde.</p>        
+        <div class="caja_boton">
+            <!-- Botón que utiliza JavaScript para mostrar un mensaje -->
+            <!--<button onclick="alert('Ejemplo de interacción con JavaScript')">Haz clic aquí</button>-->
+            <button class="btn_nombre", onclick="fun_nombre()">Haz click aquí</button>
+        </div>
+
+    </div>
+    
+    <div class="caja_logoUNAD">
+        <!-- Caja donde contiene una imagen o varias -->
+        <img class="logoUNAD" src="https://campus0b.unad.edu.co/campus/ulib/imagenes/logoUNAD-HD.png"> 
+    </div>
+
+    <!-- Caja del pie de página -->
+    <div class="caja_pie">
+      <footer class="pie">
+          <p>Página web educativa sobre arquitectura web y diseño centrado en el usuario</p>
+          <p>© 2023 - Desarrollado con fines académicos</p>
+      </footer>
+    </div>
+
+
+    <script>
+        let color_body;
+
+        color_body="#FFFFFF";
+        function fun_cambio(){ 
+            if (color_body=="#FFFFFF") {color_body="#000000";} else {color_body="#FFFFFF";}
+            document.body.style.background = color_body
+        }
+
+        function fun_nombre(){
+            let name;
+            do{
+                name = prompt("¿Cuál es tu profesión y nombre?");
+            }while(name===null || name.trim()==="")
+
+            alert("¡Hola " + name + ", encantado de verte! A continuación se cambiará el nombre del titulo");
+            document.getElementById("titulo1").innerHTML = "Arquitectura Cliente/Servidor Creado por el "+name+" Siguente";            
+        }
+    /*
+        const btncambio = document.querySelector("button");
+        btncambio.onclick = function () {
+            let name;
+            do{
+                name = prompt("¿Cuál es tu profesión y nombre?");
+            }while(name==null)
+            alert("¡Hola " + name + ", encantado de verte! A continuación se cambiará el nombre del titulo");
+            document.getElementById("titulo1").innerHTML = "Arquitectura Cliente/Servidor Creado por el "+name+" Siguente";
+            if (color_body=="#FFFFFF") {color_body="#000000"} else {color_body="#FFFFFF"}
+            document.body.style.background = color_body
+            
+        };*/
+
+    </script>
+
+</body>
+</html>
